@@ -5,10 +5,10 @@ import Link from "next/link";
 import { ArrowUpRight, Bars, Xmark } from "@gravity-ui/icons";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Collection", href: "#collection" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Collection", href: "/collection" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -20,7 +20,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link
-          href="#home"
+          href="/#home"
           className="font-heading text-4xl font-semibold tracking-wide"
           onClick={() => setIsOpen(false)}
         >
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <Link
-          href="#collection"
+          href="/#collection"
           className="btn-primary hidden items-center gap-2 md:inline-flex"
         >
           Shop Now
@@ -81,7 +81,7 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="#collection"
+              href="/#collection"
               onClick={() => setIsOpen(false)}
               className="btn-primary mt-2 flex items-center justify-center gap-2"
             >

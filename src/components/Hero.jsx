@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-background">
+    <section id="home" className="relative scroll-mt-20 overflow-hidden bg-background">
       <div className="container-custom">
         <div className="grid items-center gap-12 py-12 sm:py-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-16 xl:gap-20">
           <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0">
@@ -33,7 +33,7 @@ export default function Hero() {
 
             <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Link
-                href="#collection"
+                href="/#collection"
                 className="btn-primary group w-full gap-3 sm:w-auto"
               >
                 Explore Collection
@@ -44,7 +44,7 @@ export default function Hero() {
                 />
               </Link>
 
-              <Link href="#about" className="btn-outline w-full sm:w-auto">
+              <Link href="/about#about" className="btn-outline w-full sm:w-auto">
                 Discover Noore
               </Link>
             </div>

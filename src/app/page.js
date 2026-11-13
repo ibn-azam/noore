@@ -1,10 +1,11 @@
 import Hero from "@/components/Hero";
-import Image from "next/image";
+import FeaturedCollection from "@/components/FeaturedCollection";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Hero/>
+      <Hero />
+      <FeaturedCollection />
     </div>
   );
 }

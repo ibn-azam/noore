@@ -7,15 +7,15 @@ import {
 } from "@gravity-ui/icons";
 
 const footerLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Collection", href: "#collection" },
-  { name: "About Us", href: "#about" },
+  { name: "Home", href: "/#home" },
+  { name: "Collection", href: "/#collection" },
+  { name: "About Us", href: "/about#about" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer id="contact" className="scroll-mt-20 bg-primary text-white">
 
       {/* Main Footer */}
       <div className="container-custom py-16 md:py-20">
@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Brand Information */}
           <div className="lg:col-span-2">
             <Link
-              href="#home"
+              href="/#home"
               className="inline-block font-heading text-5xl font-semibold tracking-wide"
             >
               Noore<span className="text-accent">.</span>
@@ -116,7 +116,7 @@ export default function Footer() {
           </p>
 
           <Link
-            href="#home"
+            href="/#home"
             aria-label="Back to top"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all hover:border-accent hover:bg-accent"
           >
