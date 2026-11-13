@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" fill="none" viewBox="0 0 900 1100">
+  <defs>
+    <linearGradient id="backdrop" x1="70" x2="838" y1="68" y2="1048" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4EDE2"/>
+      <stop offset=".55" stop-color="#E9DDCA"/>
+      <stop offset="1" stop-color="#CBB798"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="318" x2="586" y1="525" y2="879" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F3E9" stop-opacity=".92"/>
+      <stop offset=".3" stop-color="#D2AE79" stop-opacity=".84"/>
+      <stop offset=".72" stop-color="#A97D4F" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#725039"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="374" x2="531" y1="282" y2="393" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D8A5"/>
+      <stop offset=".48" stop-color="#B18B51"/>
+      <stop offset="1" stop-color="#E6CC91"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="386" x2="515" y1="187" y2="309" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E4C5"/>
+      <stop offset=".45" stop-color="#C7A66C"/>
+      <stop offset="1" stop-color="#947344"/>
+    </linearGradient>
+    <linearGradient id="label" x1="358" x2="548" y1="626" y2="792" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF8F1"/>
+      <stop offset="1" stop-color="#EDE4D5"/>
+    </linearGradient>
+    <filter id="shadow" width="488" height="582" x="206" y="431" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="soft" width="400" height="400" x="503" y="47" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="54"/>
+    </filter>
+  </defs>
+  <path fill="url(#backdrop)" d="M0 0h900v1100H0z"/>
+  <circle cx="703" cy="247" r="151" fill="#FFF9EF" fill-opacity=".55" filter="url(#soft)"/>
+  <path fill="#fff" fill-opacity=".2" d="M0 760c177-85 295-44 438 17 147 64 292 69 462-10v333H0z"/>
+  <path fill="#F6F0E7" fill-opacity=".36" d="M0 890c198-70 331 2 481 48 144 43 263 34 419-25v187H0z"/>
+  <ellipse cx="450" cy="898" fill="#493522" fill-opacity=".3" rx="194" ry="37" filter="url(#shadow)"/>
+  <path stroke="#987B55" stroke-opacity=".35" stroke-width="2" d="M98 809c78-46 136-46 185 0M628 829c54-34 105-35 157-3"/>
+  <path fill="url(#cap)" d="M387 189c0-22 18-40 40-40h46c22 0 40 18 40 40v94H387z"/>
+  <path fill="#F6E6C1" fill-opacity=".56" d="M406 169h12v94h-12z"/>
+  <path fill="url(#gold)" d="M368 278h164v69H368z"/>
+  <path fill="#F4E0B7" fill-opacity=".56" d="M383 290h12v44h-12z"/>
+  <path fill="url(#glass)" stroke="#FFF9EE" stroke-opacity=".78" stroke-width="5" d="M350 337h200c13 0 24 11 24 24v85c0 31 16 60 41 79 25 20 40 50 40 82v222c0 47-38 85-85 85H330c-47 0-85-38-85-85V607c0-32 15-62 40-82 25-19 41-48 41-79v-85c0-13 11-24 24-24Z"/>
+  <path fill="#fff" fill-opacity=".3" d="M324 453c0-37 30-67 67-67h9v439h-9c-37 0-67-30-67-67z"/>
+  <path fill="url(#label)" d="M341 601h218v183H341z"/>
+  <path stroke="#B08D57" stroke-opacity=".65" d="M361 621h178v143H361z"/>
+  <path fill="#B08D57" d="M437 659h26v2h-26z"/>
+  <text x="450" y="700" fill="#393127" font-family="Georgia,serif" font-size="35" letter-spacing="8" text-anchor="middle">NOORE</text>
+  <text x="450" y="730" fill="#806D51" font-family="Arial,sans-serif" font-size="10" letter-spacing="4" text-anchor="middle">EAU DE PARFUM</text>
+  <text x="450" y="749" fill="#806D51" font-family="Arial,sans-serif" font-size="8" letter-spacing="3" text-anchor="middle">A SIGNATURE SCENT</text>
+  <path stroke="#fff" stroke-opacity=".46" stroke-width="3" d="M596 539c24 20 38 47 38 77v202"/>
+</svg>
