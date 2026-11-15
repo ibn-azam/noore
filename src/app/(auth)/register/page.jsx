@@ -11,6 +11,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+
     if (formData.get("password") !== formData.get("confirm-password")) {
       setNotice("Passwords do not match. Please check and try again.");
       return;
