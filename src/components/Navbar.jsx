@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Bars, Xmark } from "@gravity-ui/icons";
+import { Bars, ShoppingCart, Xmark } from "@gravity-ui/icons";
+import { useCart } from "@/components/CartProvider";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
@@ -40,14 +42,29 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <Link
-          href="/#collection"
-          className="btn-primary hidden items-center gap-2 md:inline-flex"
-        >
-          Shop Now
-          <ArrowUpRight width={16} height={16} />
-        </Link>
+        <div className="hidden items-center gap-3 md:flex">
+          <Link
+            href="/login"
+            className="px-3 py-2 text-sm font-medium text-primary/75 transition-colors hover:text-accent"
+          >
+            Login
+          </Link>
+          <Link href="/register" className="btn-primary px-4 py-2">
+            Register
+          </Link>
+          <Link
+            href="/cart"
+            aria-label={`Cart with ${cartCount} ${cartCount === 1 ? "item" : "items"}`}
+            className="relative flex h-10 w-10 items-center justify-center rounded-md border border-border text-primary transition-colors hover:border-accent hover:text-accent"
+          >
+            <ShoppingCart width={19} height={19} />
+            {cartCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-white">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -81,12 +98,27 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="/#collection"
+              href="/login"
               onClick={() => setIsOpen(false)}
-              className="btn-primary mt-2 flex items-center justify-center gap-2"
+              className="text-base font-medium text-primary/80 transition-colors hover:text-accent"
             >
-              Shop Now
-              <ArrowUpRight width={16} height={16} />
+              Login
+            </Link>
+            <Link
+              href="/register"
+              onClick={() => setIsOpen(false)}
+              className="btn-primary flex items-center justify-center"
+            >
+              Register
+            </Link>
+            <Link
+              href="/cart"
+              onClick={() => setIsOpen(false)}
+              aria-label={`Cart with ${cartCount} ${cartCount === 1 ? "item" : "items"}`}
+              className="flex items-center gap-3 text-base font-medium text-primary/80 transition-colors hover:text-accent"
+            >
+              <ShoppingCart width={19} height={19} />
+              Cart ({cartCount})
             </Link>
           </div>
         </div>

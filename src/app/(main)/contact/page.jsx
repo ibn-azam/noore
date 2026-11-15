@@ -73,13 +73,13 @@ Please share more details. Thank you!
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#B08D57]" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#B08D57]">
-              We'd Love to Hear From You
+              We&apos;d Love to Hear From You
             </span>
             <span className="h-px w-8 bg-[#B08D57]" />
           </div>
 
           <h2 className="font-[var(--font-heading)] text-4xl font-medium leading-tight text-[#25221F] sm:text-5xl md:text-6xl">
-            Let's Find Your
+            Let&apos;as Find Your
             <span className="block italic text-[#B08D57]">
               Perfect Fragrance.
             </span>
@@ -87,7 +87,7 @@ Please share more details. Thank you!
 
           <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-[#77716A] md:text-base">
             Have a question or found a fragrance you love? Get in touch
-            with Noore. We're here to help you choose your next signature scent.
+            with Noore. We&apos;re here to help you choose your next signature scent.
           </p>
         </div>
 
@@ -112,8 +112,8 @@ Please share more details. Thank you!
               </h3>
 
               <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
-                Tell us what you're looking for. Whether it's a personal
-                fragrance or a thoughtful gift, we'd love to help.
+                Tell us what you&apos;re looking for. Whether it&apos;s a personal
+                fragrance or a thoughtful gift, we&apos;d love to help.
               </p>
 
               {/* WhatsApp Contact */}
@@ -270,7 +270,7 @@ Please share more details. Thank you!
               </button>
 
               <p className="text-center text-[11px] leading-5 text-[#999188]">
-                You'll be redirected to WhatsApp to send your enquiry.
+                You&apos;ll be redirected to WhatsApp to send your enquiry.
                 No payment is collected through this form.
               </p>
             </form>
@@ -280,7 +280,7 @@ Please share more details. Thank you!
         {/* Bottom Message */}
         <div className="mt-12 text-center">
           <p className="font-[var(--font-heading)] text-2xl italic text-[#77716A] md:text-3xl">
-            We're just a message away.
+            We&apos;re just a message away.
           </p>
         </div>
       </div>
