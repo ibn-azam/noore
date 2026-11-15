@@ -7,10 +7,10 @@ import {
 } from "@gravity-ui/icons";
 
 const footerLinks = [
-  { name: "Home", href: "/#home" },
-  { name: "Collection", href: "/#collection" },
-  { name: "About Us", href: "/about#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Collection", href: "/collection" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {

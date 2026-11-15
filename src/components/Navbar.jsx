@@ -20,7 +20,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link
-          href="/#home"
+          href="/"
           className="font-heading text-4xl font-semibold tracking-wide"
           onClick={() => setIsOpen(false)}
         >
