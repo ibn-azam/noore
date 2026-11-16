@@ -2,14 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, Sparkles } from "@gravity-ui/icons";
+import {
+  Form,
+  TextField,
+  Label,
+  Input,
+  FieldError,
+  Button,
+} from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
+
+const inputClass =
+  "w-full border border-[#E8E1D6] bg-[#F8F5EF]/50 px-4 py-3.5 text-sm text-[#25221F] outline-none transition-colors placeholder:text-[#A49D93] focus:border-[#B08D57] focus:bg-white";
 
 export default function LoginPage() {
-  const [notice, setNotice] = useState("");
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setNotice("Login is not connected yet. Please check back soon.");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(formData.entries());
+
+    toast.promise(
+      authClient.signIn
+        .email({
+          email: String(userData.email || "").trim(),
+          password: String(userData.password || ""),
+        })
+        .then(({ data, error }) => {
+          if (error) throw new Error(error.message || "Login failed.");
+          return data;
+        }),
+      {
+        loading: "Signing in...",
+        success: () => {
+          router.push("/");
+          return "Signed in successfully!";
+        },
+        error: (err) => err.message || "Unable to sign in right now.",
+        finally: () => setIsLoading(false),
+      }
+    );
   };
 
   return (
@@ -21,11 +60,7 @@ export default function LoginPage() {
         <div className="relative hidden flex-col justify-between overflow-hidden bg-[#25221F] p-10 text-white md:flex lg:p-12">
           <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full border border-[#B08D57]/20" />
           <div className="relative">
-            <Sparkles
-              width={28}
-              height={28}
-              className="mb-8 text-[#D9BE91]"
-            />
+            <Sparkles width={28} height={28} className="mb-8 text-[#D9BE91]" />
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9BE91]">
               Welcome to Noore
             </p>
@@ -62,63 +97,58 @@ export default function LoginPage() {
             Welcome back. Enter your details to access your account.
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-xs font-semibold text-[#37312B]"
-              >
+          <Form
+            onSubmit={handleSubmit}
+            validationBehavior="native"
+            className="mt-8 space-y-5"
+          >
+            {/* Email */}
+            <TextField name="email" type="email" isRequired className="w-full">
+              <Label className="mb-2 block text-xs font-semibold text-[#37312B]">
                 Email address
-              </label>
-              <input
-                id="email"
-                name="email"
+              </Label>
+              <Input
                 type="email"
                 autoComplete="email"
-                required
                 placeholder="you@example.com"
-                className="w-full border border-[#E8E1D6] bg-[#F8F5EF]/50 px-4 py-3.5 text-sm text-[#25221F] outline-none transition-colors placeholder:text-[#A49D93] focus:border-[#B08D57] focus:bg-white"
+                className={inputClass}
               />
-            </div>
+              <FieldError className="text-xs text-[#37312B]/50" />
+            </TextField>
 
-            <div>
-              <label
-                htmlFor="password"
-                className="mb-2 block text-xs font-semibold text-[#37312B]"
-              >
+            {/* Password */}
+            <TextField
+              name="password"
+              type="password"
+              isRequired
+              className="w-full"
+            >
+              <Label className="mb-2 block text-xs font-semibold text-[#37312B]">
                 Password
-              </label>
-              <input
-                id="password"
-                name="password"
+              </Label>
+              <Input
                 type="password"
                 autoComplete="current-password"
-                required
                 placeholder="Enter your password"
-                className="w-full border border-[#E8E1D6] bg-[#F8F5EF]/50 px-4 py-3.5 text-sm text-[#25221F] outline-none transition-colors placeholder:text-[#A49D93] focus:border-[#B08D57] focus:bg-white"
+                className={inputClass}
               />
-            </div>
+              <FieldError className="text-xs text-[#37312B]/50" />
+            </TextField>
 
-            <button
+            {/* Submit Button */}
+            <Button
               type="submit"
-              className="group flex w-full items-center justify-center gap-2 bg-[#25221F] px-6 py-4 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#B08D57]"
+              isDisabled={isLoading}
+              className="group flex w-full items-center justify-center gap-2 bg-[#25221F] px-6 py-4 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#B08D57] disabled:opacity-60"
             >
-              Sign in
+              {isLoading ? "Signing in..." : "Sign in"}
               <ArrowUpRight
                 width={16}
                 height={16}
                 className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
-            </button>
-
-            <p
-              role="status"
-              aria-live="polite"
-              className="min-h-5 text-center text-xs leading-5 text-[#77716A]"
-            >
-              {notice}
-            </p>
-          </form>
+            </Button>
+          </Form>
 
           <p className="mt-5 text-center text-sm text-[#77716A]">
             Don&apos;t have an account?{" "}

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/CartProvider";
+import { Toaster } from "sonner";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <Navbar />
           <main>{children}</main>
+          <Toaster position="top-right" richColors />
           <Footer />
         </CartProvider>
       </body>
