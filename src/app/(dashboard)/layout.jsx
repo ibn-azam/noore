@@ -4,7 +4,7 @@ import React from "react";
 
 function DashboardLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-[#000c16]">
+    <div className="flex min-h-screen">
       <DashboardSidebar/>
       <div>{children}</div>
     </div>
