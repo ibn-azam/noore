@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Collection", href: "/collection" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Dashboard", href: "/dashboard/admin" },
 ];
 
 export default function Navbar() {
@@ -24,7 +25,7 @@ export default function Navbar() {
   const handleSignout = async () => {
     await authClient.signOut();
     setIsOpen(false);
-    router.push("/");
+    router.push("/login");
     router.refresh();
   };
 

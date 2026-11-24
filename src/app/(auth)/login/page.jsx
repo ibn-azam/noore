@@ -113,7 +113,7 @@ export default function LoginPage() {
                 placeholder="you@example.com"
                 className={inputClass}
               />
-              <FieldError className="text-xs text-[#37312B]/50" />
+              <FieldError className="text-xs text-red-700" />
             </TextField>
 
             {/* Password */}
@@ -132,7 +132,7 @@ export default function LoginPage() {
                 placeholder="Enter your password"
                 className={inputClass}
               />
-              <FieldError className="text-xs text-[#37312B]/50" />
+              <FieldError className="text-xs text-red-700" />
             </TextField>
 
             {/* Submit Button */}
