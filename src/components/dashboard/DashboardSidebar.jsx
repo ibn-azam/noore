@@ -15,6 +15,8 @@ import {
   Gear,
   ShoppingCart,
   Persons,
+  Briefcase,
+  CirclePlus,
 } from "@gravity-ui/icons";
 import { Avatar, Button, Drawer } from "@heroui/react";
 import Link from "next/link";
@@ -33,9 +35,14 @@ export function DashboardSidebar() {
       label: "Overview",
     },
     {
-      icon: BriefcaseFill,
+      icon: Briefcase,
       href: "/dashboard/admin/products",
       label: "Products",
+    },
+    {
+      icon: CirclePlus,
+      href: "/dashboard/admin/add-products",
+      label: "Add-Products",
     },
     {
       icon: Tags,
