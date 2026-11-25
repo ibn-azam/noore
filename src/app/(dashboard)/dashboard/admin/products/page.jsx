@@ -104,7 +104,7 @@ function ProductsPage() {
         </div>
 
         <Link
-          href="/dashboard/admin/products/add"
+          href="/dashboard/admin/add-products"
           className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25221F] px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-[#B08D57]"
         >
           <Plus size={18} />

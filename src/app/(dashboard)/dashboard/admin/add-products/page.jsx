@@ -135,9 +135,37 @@ function AddProductsPage() {
 
       console.log("Product Data:", productData);
 
-      // TODO: Send productData to your Express API.
+      const response = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/api/perfume`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(productData),
+  }
+);
 
-      setSuccess("Image uploaded successfully. Product data is ready.");
+const result = await response.json();
+
+if (!response.ok) {
+  throw new Error(result.message || "Failed to add product.");
+}
+
+      setSuccess("Product Added Successfully!");
+
+       setFormData({
+  name: "",
+  category: "",
+  price: "",
+  oldPrice: "",
+  stock: "",
+  sku: "",
+  description: "",
+  status: "Active",
+});
+
+removeImage();
 
     } catch (err) {
       console.error("Product submission error:", err);
@@ -470,7 +498,7 @@ function AddProductsPage() {
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25221F] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#B08D57] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <Plus size={17} />
-                  {isSubmitting ? "Uploading Image..." : "Add Product"}
+                  {isSubmitting ? "Uploading & Saving..." : "Add Product"}
                 </button>
 
                 <Link
