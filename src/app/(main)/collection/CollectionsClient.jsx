@@ -79,10 +79,10 @@ export default function CollectionsClient({ perfumes = [] }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F5EF]">
+    <div className="bg-[#F8F5EF]">
 
       {/* Page Header */}
-      <section className="border-b border-[#E8E1D6] px-5 pb-14 pt-20 text-center md:pb-20 md:pt-28">
+      {/* <section className="border-b border-[#E8E1D6] px-5 pb-5 pt-5 text-center md:pb-10 md:pt-10">
         <div className="mx-auto max-w-3xl">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#B08D57]" />
@@ -107,10 +107,10 @@ export default function CollectionsClient({ perfumes = [] }) {
             every moment unforgettable.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Collection Content */}
-      <section className="container-custom py-14 md:py-20">
+      <section className="container-custom py-5 md:py-10">
 
         {/* Search and Sorting */}
         <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
@@ -272,11 +272,13 @@ Please share more details.`;
                         {product.name}
                       </h2>
 
-                      <ArrowUpRight
+                      <Link href={`/dashboard/admin/products/${product._id}`} className="cursor-pointer">
+                        <ArrowUpRight
                         width={18}
                         height={18}
                         className="shrink-0 text-[#B08D57]"
                       />
+                      </Link>
                     </div>
 
                     <p className="mt-2 min-h-12 text-xs leading-6 text-[#77716A]">

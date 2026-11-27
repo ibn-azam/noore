@@ -61,7 +61,7 @@ Please share more details. Thank you!
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#F8F5EF] py-20 md:py-28"
+      className="relative overflow-hidden bg-[#F8F5EF] py-5 md:py-10"
     >
       {/* Decorative Background */}
       <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-[#B08D57]/5 blur-3xl" />
