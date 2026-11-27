@@ -71,7 +71,30 @@ export function DashboardSidebar() {
     },
   ];
 
-  const navItems = user?.role === "admin" ? adminNav : [];
+  const userNav = [
+    {
+      icon: House,
+      href: "/dashboard/user",
+      label: "Overview",
+    },
+    {
+      icon: ShoppingBag,
+      href: "/dashboard/user/orders",
+      label: "My-Orders",
+    },
+    {
+      icon: ShoppingBag,
+      href: "/dashboard/user/wishlist",
+      label: "Wishlist",
+    },
+  ]
+
+  const navItems =
+  user?.role === "admin"
+    ? adminNav
+    : user?.role === "user"
+    ? userNav
+    : [];
 
   const activePath = navItems
     .map((item) => item.href)

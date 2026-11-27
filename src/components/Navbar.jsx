@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -7,20 +8,24 @@ import { Bars, ShoppingCart, Xmark } from "@gravity-ui/icons";
 import { useCart } from "@/components/CartProvider";
 import { authClient, useSession } from "@/lib/auth-client";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Collection", href: "/collection" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-  { name: "Dashboard", href: "/dashboard/admin" },
-];
-
 export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { cartCount } = useCart();
   const { data, isPending } = useSession();
   const user = data?.user;
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Collection", href: "/collection" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const dashboardUrl =
+    user?.role === "admin"
+      ? "/dashboard/admin"
+      : "/dashboard/user";
 
   const handleSignout = async () => {
     await authClient.signOut();
@@ -52,6 +57,15 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          {!isPending && user && (
+            <Link
+              href={dashboardUrl}
+              className="text-sm font-medium text-primary/75 transition-colors hover:text-accent"
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
 
         {/* Desktop auth + cart */}
@@ -107,7 +121,11 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className="flex h-10 w-10 items-center justify-center rounded-md border border-border md:hidden"
         >
-          {isOpen ? <Xmark width={22} height={22} /> : <Bars width={22} height={22} />}
+          {isOpen ? (
+            <Xmark width={22} height={22} />
+          ) : (
+            <Bars width={22} height={22} />
+          )}
         </button>
       </nav>
 
@@ -125,6 +143,16 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+            {!isPending && user && (
+              <Link
+                href={dashboardUrl}
+                onClick={() => setIsOpen(false)}
+                className="text-base font-medium text-primary/80 transition-colors hover:text-accent"
+              >
+                Dashboard
+              </Link>
+            )}
 
             {!isPending && user ? (
               <>
