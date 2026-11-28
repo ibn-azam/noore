@@ -272,7 +272,7 @@ Please share more details.`;
                         {product.name}
                       </h2>
 
-                      <Link href={`/dashboard/admin/products/${product._id}`} className="cursor-pointer">
+                      <Link href={`/collection/${product._id}`} className="cursor-pointer">
                         <ArrowUpRight
                         width={18}
                         height={18}
